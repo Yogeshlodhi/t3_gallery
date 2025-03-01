@@ -1,20 +1,26 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { db } from "~/server/db";
+import Image from "next/image";
+import { getMyImages } from "~/server/queries";
 
 export const dynamic = "force-dynamic";
 
 async function Images(){
-  const images = await db.query.images.findMany({
-    orderBy: (model, {desc}) => desc(model.id),
-  });
-  
-  // console.log(images);
+
+  const images = await getMyImages();
 
   return (
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap justify-center gap-4">
         {images.map((image) => (
             <div key={image.id} className="flex w-48 h-48 flex-col">
-              <img src={image.url} alt="image" className="object-cover w-48 h-48" />
+              {/* <img src={image.url} alt="image" className="object-cover w-48 h-48" /> */}
+              <Image 
+                src={image.url} 
+                alt={image.name} 
+                // className="object-cover w-48 h-48"
+                style={{objectFit: "contain"}}
+                width={480}
+                height={480}
+              />
               <div>{image.name}</div>
             </div>
           ))}
