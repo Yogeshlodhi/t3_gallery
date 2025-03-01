@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.12.1",
+    "@sentry/nextjs": "^9.3.0",
     "@t3-oss/env-nextjs": "^0.10.1",
     "@uploadthing/react": "^7.3.0",
     "@vercel/postgres": "^0.10.0",
