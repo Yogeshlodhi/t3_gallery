@@ -11,7 +11,13 @@ const config = {
     },
     eslint: {
         ignoreDuringBuilds: true
+    },
+    experimental: {
+    serverActions: {
+      bodySizeLimit: "4mb",
+      allowedOrigins: ["https://t3-gallery-gamma-mocha.vercel.app/"]
     }
+  }
 };
 
 export default config;
