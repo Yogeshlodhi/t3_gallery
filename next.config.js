@@ -11,6 +11,12 @@ const config = {
     },
     eslint: {
         ignoreDuringBuilds: true
+    },
+    experimental: {
+        serverActions: {
+            bodySizeLimit: "4mb",
+            allowedOrigins: ["*"]
+        }
     }
 };
 
