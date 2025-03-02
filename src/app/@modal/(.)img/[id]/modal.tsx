@@ -1,3 +1,4 @@
+"use client"
 import { useRouter } from "next/router";
 import { type ElementRef, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
