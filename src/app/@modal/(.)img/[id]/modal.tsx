@@ -1,9 +1,9 @@
 "use client"
-import { useRouter } from "next/router";
-import { type ElementRef, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+import { type ElementRef, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
-export function Modal({children} : {children :  React.ReactNode}){
+export function Modal({ children }: { children: React.ReactNode }) {
     const router = useRouter();
     const dialogRef = useRef<ElementRef<'dialog'>>(null);
 
@@ -18,9 +18,9 @@ export function Modal({children} : {children :  React.ReactNode}){
     }
 
     return createPortal(
-        <dialog 
-            ref={dialogRef} 
-            className="w-screen h-screen bg-black/50 text-white" 
+        <dialog
+            ref={dialogRef}
+            className="w-screen h-screen bg-black/50 text-white"
             onClose={onDismiss}
         >
             {children}
